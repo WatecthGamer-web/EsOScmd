@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EsOScmd terminalinin açık kaynak kodunu içerir.">
+    <meta name="keywords" content="EsOScmd, python, 1.1 Alpha, EsGamesStudio">
+    <title>EsOScmd</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .lang-switch button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        .lang-switch button:hover {
+            background-color: #0056b3;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #222;
+        }
+        p {
+            text-align: center;
+            line-height: 1.6;
+        }
+        /* Python kodunu gerçek bir kod bloğu gibi göstermek için */
+        pre {
+            background-color: #1e1e1e;
+            color: #00ff66;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            text-align: left; /* Kodlar sola dayalı okunur */
+        }
+        .lang-en { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Dil Değiştirme Butonları -->
+    <div class="lang-switch">
+        <button onclick="setLanguage('tr')">TR</button>
+        <button onclick="setLanguage('en')">EN</button>
+    </div>
+
+    <!-- TÜRKÇE İÇERİK -->
+    <div id="content-tr">
+        <h1>EsOScmd 1.1 Alpha</h1>
+
+        <h2>EsOScmd Nedir?</h2>
+        <p>EsOScmd, Windows'un CMD komut çalıştırma merkezi gibi tasarlanmış eğlenceli bir komut satırı simülatörüdür. Bir sistem yazılımı olmayıp harici bir betiktir; bilgisayara zarar veremez veya doğrudan sistem dosyalarıyla iletişim kuramaz. Ancak onu çalıştırmak tamamen senin elinde!</p>
+
+        <h2>EsOScmd Açık Kaynak Kodu</h2>
+        <p>EsOScmd'nin açık kaynak kodunu aşağıda inceleyebilir, dilediğin gibi kopyalayıp geliştirebilirsin:</p>
+
+        <pre><code>import datetime
+import os
+import winsound
+
+winsound.PlaySound("opening.wav", winsound.SND_FILENAME | winsound.SND_ASYNC)
+
+simdiki_zaman = datetime.datetime.now()
+tarih_str = simdiki_zaman.strftime("%d %B %Y")
+
+print("Welcome to cmd at EsOS")
+print("You can write command.")
+print("Warning: This cmd is not completed.")
+print(f"System Date: {tarih_str}\n")
+
+while True:
+    commander = input("€> ").strip().lower()
+
+    if commander == "help":
+        print("""
+DATE      Showing date
+NEWCMD    Starts a new cmd
+CLEARDISPLAY  Cleaning words at the cmd
+TIME      Showing time
+VER       EsOS Commander v1.1 Alpha
+EXIT      Exiting the EsOS cmd
+""")
+    elif commander == "date":
+        guncel_tarih = datetime.datetime.now().strftime("%d %B %Y")
+        print(f"\n{guncel_tarih}\n")
+    elif commander == "time":
+        saat_str = datetime.datetime.now().strftime("%H:%M:%S")
+        print(f"\n{saat_str}\n")
+    elif commander == "ver":
+        print("\nEsOS Commander v1.1 Alpha\n")
+    elif commander == "newcmd":
+        print("\nStarting New EsOS cmd...\n")
+        os.system("start cmd")
+    elif commander == "cleardisplay":
+        print("\n" * 30)
+    elif commander == "exit":
+        print("\nExiting the EsOS cmd...")
+        winsound.PlaySound("closing.wav", winsound.SND_FILENAME)
+        break
+    elif commander == "python --version":
+        print("\nidk\n")
+    elif commander == "mal":
+        print(f"\nSensin lan mal\n")
+        winsound.PlaySound("closing.wav", winsound.SND_FILENAME)
+        input("\nBilet kesildi, çıkış için bas enter'a...")
+        break
+    else:
+        print(f"\nE404: '{commander}' is not found.\n")
+
+input("\nPress Enter to exit")</code></pre>
+
+        <h2>Yasal Bildiri</h2>
+        <p>Bu yazılım tamamen eğlence, mizah ve eğitim amaçlı geliştirilmiştir. Kodun çalıştırılmasından doğabilecek kahkaha krizleri veya beklenmeyen sistem tepkilerinden geliştirici (EsGamesStudio+) sorumlu tutulamaz. Dilediğiniz gibi özgürce kullanabilirsiniz!</p>
+    </div>
+
+    <!-- İNGİLİZCE İÇERİK -->
+    <div id="content-en" class="lang-en">
+        <h1>EsOScmd 1.1 Alpha</h1>
+
+        <h2>What is EsOScmd?</h2>
+        <p>EsOScmd is a fun command-line simulator designed like Windows CMD. It is an independent script rather than core system software; it cannot harm your computer or directly interact with system files. However, running it is entirely up to you!</p>
+
+        <h2>EsOScmd Open Source Code</h2>
+        <p>You can review EsOScmd's open-source code below, copy it, and modify it however you like:</p>
+
+        <pre><code>import datetime
+import os
+import winsound
+
+winsound.PlaySound("opening.wav", winsound.SND_FILENAME | winsound.SND_ASYNC)
+
+simdiki_zaman = datetime.datetime.now()
+tarih_str = simdiki_zaman.strftime("%d %B %Y")
+
+print("Welcome to cmd at EsOS")
+print("You can write command.")
+print("Warning: This cmd is not completed.")
+print(f"System Date: {tarih_str}\n")
+
+while True:
+    commander = input("€> ").strip().lower()
+
+    if commander == "help":
+        print("""
+DATE      Showing date
+NEWCMD    Starts a new cmd
+CLEARDISPLAY  Cleaning words at the cmd
+TIME      Showing time
+VER       EsOS Commander v1.1 Alpha
+EXIT      Exiting the EsOS cmd
+""")
+    elif commander == "date":
+        guncel_tarih = datetime.datetime.now().strftime("%d %B %Y")
+        print(f"\n{guncel_tarih}\n")
+    elif commander == "time":
+        saat_str = datetime.datetime.now().strftime("%H:%M:%S")
+        print(f"\n{saat_str}\n")
+    elif commander == "ver":
+        print("\nEsOS Commander v1.1 Alpha\n")
+    elif commander == "newcmd":
+        print("\nStarting New EsOS cmd...\n")
+        os.system("start cmd")
+    elif commander == "cleardisplay":
+        print("\n" * 30)
+    elif commander == "exit":
+        print("\nExiting the EsOS cmd...")
+        winsound.PlaySound("closing.wav", winsound.SND_FILENAME)
+        break
+    elif commander == "python --version":
+        print("\nidk\n")
+    elif commander == "mal":
+        print(f"\nSensin lan mal\n")
+        winsound.PlaySound("closing.wav", winsound.SND_FILENAME)
+        input("\nBilet kesildi, çıkış için bas enter'a...")
+        break
+    else:
+        print(f"\nE404: '{commander}' is not found.\n")
+
+input("\nPress Enter to exit")</code></pre>
+
+        <h2>Legal Notice</h2>
+        <p>This software is developed purely for entertainment, humor, and educational purposes. The developer (EsGamesStudio+) cannot be held responsible for any sudden bursts of laughter or unexpected system reactions resulting from running the code. Feel free to use and share it!</p>
+    </div>
+</div>
+
+<script>
+    function setLanguage(lang) {
+        const trContent = document.getElementById('content-tr');
+        const enContent = document.getElementById('content-en');
+
+        if (lang === 'tr') {
+            trContent.style.display = 'block';
+            enContent.style.display = 'none';
+        } else if (lang === 'en') {
+            trContent.style.display = 'none';
+            enContent.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
